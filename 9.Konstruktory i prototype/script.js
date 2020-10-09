@@ -91,23 +91,21 @@ console.log(calc2.divide(10,2));
 
 class Game{
     randomize() {
-        Game.prototype.num = Math.round(Math.random() * (10 - 1) + 1);
+        Game.prototype.x = setInterval(function(){Game.prototype.num = Math.round(Math.random() * (10 - 1) + 1);}, 1000);
     }
-    
-    areYaWinningSon() {
-        if (Game.prototype.num > 5) {
-        console.log('Yes dad')
-        clearInterval(int2);
-      } else {
-        console.log('Not :(')
-      }
+    winCheck() {
+      Game.prototype.winCheckInterval= setInterval(function(){
+          if (Game.prototype.num > 5) {
+          console.log('Win')
+          clearInterval(Game.prototype.x);
+          clearInterval(Game.prototype.winCheckInterval);       
+          } else {
+          console.log('Not')
+        }}, 1000);
     }
   }
-  
-  
   const game1 = new Game();
   const game2 = new Game();
   
-  const int1 = setInterval(game1.randomize,1000)
-  const int2 = setInterval(game2.areYaWinningSon,1000)
-
+  game1.randomize();
+  game2.winCheck();
