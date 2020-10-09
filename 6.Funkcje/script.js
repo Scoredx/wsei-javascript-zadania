@@ -1,24 +1,24 @@
 //Zadanie 1
 
 function foo(){
-    console.log("You made it!");
+    return "You made it!";
 }
-foo();
+console.log(foo());
 
 //Zadanie 2 
 
 let x = 2 
 function foo(m){
-    console.log(m);
+    return m;
 }
-foo(x);
+console.log(foo(x));
 
 //Zadanie 3 
 
 function arr (arr) {
-    console.log(arr);
+   return arr;
 }
-distFromAvarage ([1,2,3]);
+console.log(distFromAvarage ([1,2,3]));
 
 //Zadanie 4
 
