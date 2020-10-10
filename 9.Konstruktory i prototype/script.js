@@ -31,7 +31,7 @@ console.log(person5);
 
 //Zadanie 2 
 
-class Clac{
+class Calc{
     constructor(){
         this.memory = 0;
         this.result = 0;
@@ -81,8 +81,8 @@ class Clac{
     }
 }
 
-const calc1 = new Clac();
-const calc2 = new Clac();
+const calc1 = new Calc();
+const calc2 = new Calc();
 
 console.log(calc1.add(1, 5));
 console.log(calc2.divide(10,2));
