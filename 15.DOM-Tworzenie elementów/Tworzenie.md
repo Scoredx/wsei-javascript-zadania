@@ -8,7 +8,7 @@ Stwórz odpowiednie elementy i dodaj do strony listę ulubionych owoców (minimu
 
 #### Zadanie 3
 
-Na podstawie listy z zadanie 2 stwórz event który usunie z tej listy co drugi element.
+Na podstawie listy z zadania 2 stwórz event który usunie z tej listy co drugi element.
 
 #### Zadanie 4
 
