@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastItemOfList = listItems[listItems.length-1].innerText;
     let node = document.createElement('li'); 
         node.innerText = lastItemOfList;
-        console.log(node);
     listB.appendChild(node);
     listA.removeChild(last);
 
@@ -162,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastItemOfList = listItems[listItems.length-1].innerText;
     let node = document.createElement('li'); 
         node.innerText = lastItemOfList;
-        console.log(node);
     listB.appendChild(node);
     listA.removeChild(last);
 
@@ -174,8 +172,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Zadanie 8
 
-  
-  
+  let form = document.createElement("FORM");
+  root.appendChild(form);
+  let elemType = document.createElement("input");
+  elemType.setAttribute('type', 'text');
+  elemType.setAttribute('value', 'element name');
+  let elemText = document.createElement("input");
+  elemText.setAttribute('type', 'text');
+  elemText.setAttribute('value', 'text');
+  let elemTextColor = document.createElement("input");
+  elemTextColor.setAttribute('type', 'text');
+  elemTextColor.setAttribute('value', 'text color');
+  let elemQuantity = document.createElement("input");
+  elemQuantity.setAttribute('type', 'text');
+  elemQuantity.setAttribute('value', 'quantity');
 
+  form.appendChild(elemType);
+  form.appendChild(elemText);
+  form.appendChild(elemTextColor);
+  form.appendChild(elemQuantity);
+
+  let button4 = document.createElement('button');
+  button4.id = "button4"
+  button4.type = 'button'
+  button4.innerText = "make";
+  form.appendChild(button4);
+
+  function makeThingsHappen(){
+    for(let i = 0; i < elemQuantity.value; i++){
+      let newelem = document.createElement(elemType.value);
+      newelem.innerText = elemText.value;
+      newelem.style.color = elemTextColor.value;
+      root.appendChild(newelem);
+    }
+  }
+  document.querySelector('#button4').addEventListener('click', makeThingsHappen );
+
+  //Zadanie 9
+
+  
 }); 
 
