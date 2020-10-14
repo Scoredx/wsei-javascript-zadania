@@ -139,17 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function aToB(){
     let listA=document.querySelector("#list2");
     let listB=document.querySelector("#list3");
-
-    var listItems = listA.getElementsByTagName("li");
+    let listItems = listA.getElementsByTagName("li");
     let  last=listItems[listItems.length-1];
-
     let lastItemOfList = listItems[listItems.length-1].innerText;
-    
-    var node = document.createElement("li");
-    var textnode = document.createTextNode(lastItemOfList);
-    node.appendChild(listB);
-    //document.getElementById("myList").appendChild(node);
-
+    let node = document.createElement('li'); 
+        node.innerText = lastItemOfList;
+        console.log(node);
+    listB.appendChild(node);
     listA.removeChild(last);
 
     if( listItems.length < 1){
@@ -158,11 +154,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.querySelector('#button2').addEventListener('click', aToB);
 
-  function bToA(list1, list2){
-    
+  function bToA(){
+    let listB=document.querySelector("#list2");
+    let listA=document.querySelector("#list3");
+    let listItems = listA.getElementsByTagName("li");
+    let  last=listItems[listItems.length-1];
+    let lastItemOfList = listItems[listItems.length-1].innerText;
+    let node = document.createElement('li'); 
+        node.innerText = lastItemOfList;
+        console.log(node);
+    listB.appendChild(node);
+    listA.removeChild(last);
+
+    if( listItems.length < 1){
+      document.querySelector("#button3").disabled = true;
+    }
   }
   document.querySelector('#button3').addEventListener('click', bToA );
 
+  //Zadanie 8
+
+  
   
 
 }); 
