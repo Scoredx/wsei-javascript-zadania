@@ -210,6 +210,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Zadanie 9
 
+  let form2 = document.createElement("FORM");
+  root.appendChild(form2);
+  let name = document.createElement("input");
+  name.setAttribute('type', 'text');
+  name.setAttribute('value', 'name');
+  let surname = document.createElement("input");
+  surname.setAttribute('type', 'text');
+  surname.setAttribute('value', 'surname');
+  let age = document.createElement("input");
+  age.setAttribute('type', 'text');
+  age.setAttribute('value', 'age');
+  let childrenNumber = document.createElement("input");
+  childrenNumber.setAttribute('type', 'text');
+  childrenNumber.setAttribute('value', 'Number of Children');
+
+  form2.appendChild(name);
+  form2.appendChild(surname);
+  form2.appendChild(age);
+  form2.appendChild(childrenNumber);
+
+  let button5 = document.createElement('button');
+  button5.id = "button5"
+  button5.type = 'button'
+  button5.innerText = "Więcej";
+  form2.appendChild(button5);
+
+  let button6 = document.createElement('button');
+  button6.id = "button6"
+  button6.type = 'button'
+  button6.innerText = "Utwórz";
+  form2.appendChild(button6);
+
+
+  let nameArr = [];
+  let surnameArr = [];
+  let ageArr = [];
+  let childrenArr = [];
+
+  function moreSpace(){
+    nameArr.push(name.value);
+    surnameArr.push(surname.value);
+    ageArr.push(age.value);
+    childrenArr.push(childrenNumber.value);
+    name.value = '';
+    surname.value = '';
+    age.value = '';
+    childrenNumber.value = '';
+
+  }
+  document.querySelector('#button5').addEventListener('click', moreSpace);
+
+  function makeArray(){
+
+  }
+  document.querySelector('#button6').addEventListener('click', makeArray);
+
+
   
 }); 
 
