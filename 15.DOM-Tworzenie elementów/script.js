@@ -140,15 +140,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let listA=document.querySelector("#list2");
     let listB=document.querySelector("#list3");
     let listItems = listA.getElementsByTagName("li");
+    let listItemsB = listB.getElementsByTagName("li");
     let  last=listItems[listItems.length-1];
     let lastItemOfList = listItems[listItems.length-1].innerText;
     let node = document.createElement('li'); 
-        node.innerText = lastItemOfList;
+    node.innerText = lastItemOfList;
     listB.appendChild(node);
     listA.removeChild(last);
 
     if( listItems.length < 1){
       document.querySelector("#button2").disabled = true;
+    }
+    if(listItemsB.length >= 1){
+      document.querySelector("#button3").disabled = false;
     }
   }
   document.querySelector('#button2').addEventListener('click', aToB);
@@ -157,16 +161,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let listB=document.querySelector("#list2");
     let listA=document.querySelector("#list3");
     let listItems = listA.getElementsByTagName("li");
-    let  last=listItems[listItems.length-1];
+    let listItemsB = listB.getElementsByTagName("li");
+    let last=listItems[listItems.length-1];
     let lastItemOfList = listItems[listItems.length-1].innerText;
     let node = document.createElement('li'); 
-        node.innerText = lastItemOfList;
+    node.innerText = lastItemOfList;
     listB.appendChild(node);
     listA.removeChild(last);
 
     if( listItems.length < 1){
       document.querySelector("#button3").disabled = true;
     }
+    if(listItemsB.length >= 1){
+      document.querySelector("#button2").disabled = false;
+    }
+
   }
   document.querySelector('#button3').addEventListener('click', bToA );
 
@@ -242,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
   button6.innerText = "Utwórz";
   form2.appendChild(button6);
 
-
   let nameArr = [];
   let surnameArr = [];
   let ageArr = [];
@@ -261,10 +269,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.querySelector('#button5').addEventListener('click', moreSpace);
 
-  function makeArray(){
+  function makeTable(){
 
+    let table = document.createElement("table");
+    table.style.border = '1';
+    
+    let nameTh = document.createElement('th');
+    nameTh.innerHTML = "Name";
+    let surnameTh = document.createElement('th');
+    surnameTh.innerHTML = "Surname";
+    let ageTh = document.createElement('th');
+    ageTh.innerHTML = "Age";
+    let childrenTh = document.createElement('th');
+    childrenTh.innerHTML = "ChildrenNo";
+    
+    for (var i = 0; i < nameArr.length; i++) {
+      let tr = document.createElement('tr');
+      let nameTd = document.createElement('td');
+      nameTd.value = name[i];
+      let surnameTd = document.createElement('td');
+      surnameTd.value = surname[i];
+      let ageTd = document.createElement('td');
+      ageTd.value = surname[i];
+      let childrenTd = document.createElement('td');
+      childrenTd.value = surname[i];
+
+      
+
+    }
+    root.appendChild(table);
+    table.appendChild(nameTh);
+    table.appendChild(surnameTh);
+    table.appendChild(ageTh);
+    table.appendChild(childrenTh);
   }
-  document.querySelector('#button6').addEventListener('click', makeArray);
+  document.querySelector('#button6').addEventListener('click', makeTable);
 
 
   
