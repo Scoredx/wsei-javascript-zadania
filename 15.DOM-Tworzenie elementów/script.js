@@ -270,10 +270,21 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('#button5').addEventListener('click', moreSpace);
 
   function makeTable(){
+    nameArr.push(name.value);
+    surnameArr.push(surname.value);
+    ageArr.push(age.value);
+    childrenArr.push(childrenNumber.value);
+    name.value = '';
+    surname.value = '';
+    age.value = '';
+    childrenNumber.value = '';
+
 
     let table = document.createElement("table");
     table.style.border = '1';
     
+    let headerTr = document.createElement('tr');
+    table.appendChild(headerTr);
     let nameTh = document.createElement('th');
     nameTh.innerHTML = "Name";
     let surnameTh = document.createElement('th');
@@ -283,26 +294,49 @@ document.addEventListener('DOMContentLoaded', () => {
     let childrenTh = document.createElement('th');
     childrenTh.innerHTML = "ChildrenNo";
     
+    root.appendChild(table);
+    headerTr.appendChild(nameTh);
+    headerTr.appendChild(surnameTh);
+    headerTr.appendChild(ageTh);
+    headerTr.appendChild(childrenTh);
+    
     for (var i = 0; i < nameArr.length; i++) {
-      let tr = document.createElement('tr');
+      let elemTr = document.createElement('tr');
+      table.appendChild(elemTr);
+      let delButton = document.createElement('button');
+      delButton.innerText = "Delete row";
+      elemTr.appendChild(delButton);
+
       let nameTd = document.createElement('td');
-      nameTd.value = name[i];
+      nameTd.innerText = nameArr[i];
       let surnameTd = document.createElement('td');
-      surnameTd.value = surname[i];
+      surnameTd.innerText = surnameArr[i];
       let ageTd = document.createElement('td');
-      ageTd.value = surname[i];
+      ageTd.innerText = ageArr[i];
       let childrenTd = document.createElement('td');
-      childrenTd.value = surname[i];
+      childrenTd.innerText= childrenArr[i];   
 
       
+      elemTr.appendChild(nameTd);
+      elemTr.appendChild(surnameTd);
+      elemTr.appendChild(ageTd);
+      elemTr.appendChild(childrenTd);
+      elemTr.appendChild(delButton);
 
+      delButton.addEventListener('click', delRow);
+    
     }
-    root.appendChild(table);
-    table.appendChild(nameTh);
-    table.appendChild(surnameTh);
-    table.appendChild(ageTh);
-    table.appendChild(childrenTh);
+    nameArr = [];
+    surnameArr = [];
+    ageArr = [];
+    childrenArr = [];
   }
+
+  function delRow(e) {
+    
+    e.target  .parentElement.remove()
+  }
+
   document.querySelector('#button6').addEventListener('click', makeTable);
 
 
