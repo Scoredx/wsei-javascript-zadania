@@ -339,7 +339,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('#button6').addEventListener('click', makeTable);
 
+  //Zadanie 10
 
-  
+  let button7 = document.createElement('button');
+  button7.id = "button7"
+  button7.type = 'button'
+  button7.innerText = "Zamień litery";
+  root.appendChild(button7);
+
+
+  function makeUppercase() {
+
+    document.querySelector("table").rows.length;
+    console.log("Found " + x + " tr elements in the table.");
+
+  }
+  document.querySelector('#button7').addEventListener('click', makeUppercase);
+
 }); 
 
