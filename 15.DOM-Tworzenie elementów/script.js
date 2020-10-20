@@ -345,16 +345,17 @@ document.addEventListener('DOMContentLoaded', () => {
   button7.id = "button7"
   button7.type = 'button'
   button7.innerText = "Zamień litery";
-  root.appendChild(button7);
+  root.appendChild(button7);  
 
+	function capitalize() {
+    document.querySelectorAll('tr').forEach((row) => {
+      row.querySelectorAll('td').forEach((cell) => {
+        cell.innerText = cell.innerText[0].toUpperCase() + cell.innerText.slice(1); 
+      })
+    })
+    }  
 
-  function makeUppercase() {
-
-    document.querySelector("table").rows.length;
-    console.log("Found " + x + " tr elements in the table.");
-
-  }
-  document.querySelector('#button7').addEventListener('click', makeUppercase);
-
+  document.querySelector('#button7').addEventListener('click', capitalize);
+  
 }); 
 
