@@ -347,15 +347,52 @@ document.addEventListener('DOMContentLoaded', () => {
   button7.innerText = "Zamień litery";
   root.appendChild(button7);  
 
-	function capitalize() {
+  function capitalize() {
     document.querySelectorAll('tr').forEach((row) => {
       row.querySelectorAll('td').forEach((cell) => {
         cell.innerText = cell.innerText[0].toUpperCase() + cell.innerText.slice(1); 
       })
     })
-    }  
+  }  
 
   document.querySelector('#button7').addEventListener('click', capitalize);
   
+  //Zadanie 11 
+  function gibMeString(string){
+    let justNums = string.replace(/\D/g, "");
+    if(justNums == ""){
+      return "no nums here";
+    }
+    let justNumsArr = justNums.split("");
+    let intArray = justNumsArr.map(function(e) { return parseInt(e) })
+    let sum = intArray.reduce((prev, curr) => prev += curr);
+    let muliply = intArray.reduce((prev, curr) => prev = prev *  curr);
+    for(let i = 0; i < muliply; i++ ){
+      let divTask11 = document.createElement('div');
+      divTask11.innerText = string;
+      root.append(divTask11);
+    }
+
+    return sum;
+  }
+  console.log(gibMeString("1a2b3c4d"));
+
+  //Zadanie 12
+  let obj  = {randomString:"";
+
+  };
+
+  function randomFoo(string2){
+    obj.randomString = string2;
+    return obj.randomString;
+  }
+  obj.changeName = function(arg){
+    this.type = arg;
+  }
+  car.changeName('Fiat');
+  console.log(randomFoo('xxx'));
+
+
+
 }); 
 
