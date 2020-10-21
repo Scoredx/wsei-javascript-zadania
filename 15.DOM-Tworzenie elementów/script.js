@@ -375,23 +375,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return sum;
   }
-  console.log(gibMeString("1a2b3c4d"));
+  console.log(gibMeString("1a2b"));
 
   //Zadanie 12
-  let obj  = {randomString:"";
-
-  };
+  let obj  = {};
 
   function randomFoo(string2){
-    obj.randomString = string2;
-    return obj.randomString;
-  }
-  obj.changeName = function(arg){
-    this.type = arg;
-  }
-  car.changeName('Fiat');
-  console.log(randomFoo('xxx'));
+    obj.text = string2;
 
+    let checkText = obj.text.includes("Ala");
+    if(checkText){
+      obj.text = obj.text.replace('Ala','Ola');
+      return obj.text;
+    }else{
+      let task12Div = document.createElement('div');
+      task12Div.innerText = "Słowo Ala nie występuje w tekście.";
+      root.appendChild(task12Div);
+      return "No Ala here";
+    }
 
+  }
+  console.log(randomFoo("cool Text Ala"));
 
 }); 
