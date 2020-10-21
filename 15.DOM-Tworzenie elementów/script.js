@@ -393,8 +393,64 @@ document.addEventListener('DOMContentLoaded', () => {
       root.appendChild(task12Div);
       return "No Ala here";
     }
-
   }
   console.log(randomFoo("cool Text Ala"));
+
+  //Zadanie 13
+  console.log("Zadanie 13:");
+  function gibMeString(stringArr){
+    let lettersAmount = [];
+    for(let i = 0; i < stringArr.length; i++){
+      lettersAmount[i] = stringArr[i].length;
+    }     
+     return lettersAmount;
+  }
+  function sumNumbers(lettersAmount){
+    let sumOfAmount = lettersAmount.reduce((prev,curr) => prev += curr);
+    return sumOfAmount;
+  }
+  function getAverage(sumOfAmount){
+    let avg = sumOfAmount / stringArray.length;
+    return avg;
+  }
+
+  let stringArray = ['jeden','dwa','trzy','cztery'];
+  console.log(gibMeString(stringArray));
+  console.log(sumNumbers(gibMeString(stringArray)));
+  console.log(getAverage(sumNumbers(gibMeString(stringArray))));
+
+  //Zadanie 14
+  let obj14 = {
+    name: '',
+    surname: '',
+    age: '',
+  }
+
+  function obj14Editor(){
+    obj14.name = 'imie';
+    obj14.surname = 'nazwisko';
+    obj14.age = 20;
+    obj14.nameLen = obj14.name.length;
+    obj14.surnameLen = obj14.surname.length;
+    obj14.ageLen = obj14.age.length;
+    if(obj14.name.length.length > 5 || obj14.surname.length > 5 || obj14.age.length > 5 ){
+      let clearObj14Button = document.createElement('button');
+      clearObj14Button.id = 'clearObj14Button';
+      clearObj14Button.innerText = 'Reset button';
+      root.appendChild(clearObj14Button);
+    }   
+    return obj14;
+  }
+  console.log(obj14Editor());
+  
+  document.querySelector('#clearObj14Button').addEventListener('click', function(){
+    delete obj14.nameLen;
+    delete obj14.surnameLen;
+    delete obj14.ageLen; 
+    obj14.name = "";
+    obj14.surname = "";
+    obj14.age = "";
+    console.log(obj14);
+  });
 
 }); 
